@@ -1,16 +1,18 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue';
+import TheHeader from './components/TheHeader.vue';
+import TheFooter from './components/TheFooter.vue';
 </script>
 
 <template>
   <div class="wrap">
-    <div>ヘッダー</div>
+    <TheHeader />
     <div class="main">メイン</div>
-    <div>フッター</div>
+    <TheFooter />
   </div>
 </template>
 
 <style>
+@import 'assets/css/destyle.css';
 .wrap {
   display: flex;
   flex-direction: column;
