@@ -13,7 +13,7 @@ import MainTodo from './components/MainTodo.vue';
 </template>
 
 <style>
-@import 'assets/css/destyle.css';
+/* @import 'assets/css/destyle.css'; */
 .wrap {
   display: flex;
   flex-direction: column;
