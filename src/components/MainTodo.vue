@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 import { useTodoList } from '../composables/useTodoList';
+import BaseButton from './BaseButton.vue';
+import ButtonAdd from './ButtonAdd.vue';
 // 入力した値を保持するための変数
 const todoRef = ref('');
 // 変更ボタンを押した際にfalseにする
@@ -47,8 +49,12 @@ const changeCheck = (id) => {
       placeholder="入力してください"
       v-model="todoRef"
     />
-    <button class="btn" @click="editTodo" v-show="isEditRef">変更する</button>
-    <button class="btn" @click="addTodo" v-show="!isEditRef">追加する</button>
+    <BaseButton color="green" @on-click="editTodo" v-show="isEditRef"
+      >変更する</BaseButton
+    >
+    <ButtonAdd color="blue" @on-click="addTodo" v-show="!isEditRef"
+      >追加する</ButtonAdd
+    >
   </div>
   <div class="todo-list-title">タスク一覧</div>
   <div class="box-list">
@@ -62,8 +68,12 @@ const changeCheck = (id) => {
         /><label>{{ todo.task }}</label>
       </div>
       <div class="outer-btn">
-        <button class="edit" @click="showTodo(todo.id)">編集</button>
-        <button class="delete" @click="deleteTodo(todo.id)">削除</button>
+        <BaseButton color="green" @on-click="showTodo(todo.id)"
+          >編集</BaseButton
+        >
+        <BaseButton color="pink" @on-click="deleteTodo(todo.id)"
+          >削除</BaseButton
+        >
       </div>
     </div>
   </div>
@@ -92,7 +102,7 @@ const changeCheck = (id) => {
 .btn {
   width: 200px;
   padding: 8px;
-  background-color: bisque;
+  /* background-color: bisque; */
   border-radius: 7px;
   color: blue;
   font-size: 14px;
