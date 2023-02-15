@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 export const useTodoList = () => {
   // ローカルストレージから値を取り出して、ls変数に格納している
@@ -66,6 +66,7 @@ export const useTodoList = () => {
     localStorage.todoList = JSON.stringify(todoListRef.value);
   };
 
+  // チェックをした場合の処理
   const check = (id) => {
     const todo = findById(id);
     const idx = findIndexById(id);
@@ -75,5 +76,13 @@ export const useTodoList = () => {
     localStorage.todoList = JSON.stringify(todoListRef.value);
   };
 
-  return { todoListRef, add, show, edit, del, check };
+  // チェックをした数を数える関数
+  const countFin = computed(() => {
+    // finArrという変数にデータが入った配列から、チェックをしてあるものだけを抜き出して、それを配列で返す。
+    const finArr = todoListRef.value.filter((todo) => todo.checked);
+    // 上記で抜き出した配列に対して、数を数えている
+    return finArr.length;
+  });
+
+  return { todoListRef, add, show, edit, del, check, countFin };
 };

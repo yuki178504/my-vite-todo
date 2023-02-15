@@ -6,7 +6,7 @@ const todoRef = ref('');
 // 変更ボタンを押した際にfalseにする
 const isEditRef = ref(false);
 
-const { todoListRef, add, show, edit, del, check } = useTodoList();
+const { todoListRef, add, show, edit, del, check, countFin } = useTodoList();
 
 // Todoリストを登録するための関数
 const addTodo = () => {
@@ -66,6 +66,10 @@ const changeCheck = (id) => {
         <button class="delete" @click="deleteTodo(todo.id)">削除</button>
       </div>
     </div>
+  </div>
+  <div class="finCount">
+    <span>完了:{{ countFin }}</span>
+    <span>未完了: {{ todoListRef.length - countFin }}</span>
   </div>
 </template>
 
@@ -154,5 +158,10 @@ const changeCheck = (id) => {
   text-decoration: line-through;
   background-color: blueviolet;
   color: #777;
+}
+
+.finCount {
+  margin-top: 8px;
+  font-size: 0.8em;
 }
 </style>
