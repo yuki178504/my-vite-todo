@@ -1,19 +1,17 @@
 <script setup>
 import TheHeader from './components/TheHeader.vue';
 import TheFooter from './components/TheFooter.vue';
-import MainTodo from './components/MainTodo.vue';
 </script>
 
 <template>
   <div class="wrap">
     <TheHeader />
-    <div class="main"><MainTodo /></div>
+    <main class="main"><router-view /></main>
     <TheFooter />
   </div>
 </template>
 
 <style>
-/* @import 'assets/css/destyle.css'; */
 .wrap {
   display: flex;
   flex-direction: column;

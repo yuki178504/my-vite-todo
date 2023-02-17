@@ -1,15 +1,12 @@
 <script setup>
-import { onMounted, onUpdated, ref } from 'vue';
+import { ref } from 'vue';
 import { useTodoList } from '../composables/useTodoList';
 import BaseButton from './BaseButton.vue';
 import ButtonAdd from './ButtonAdd.vue';
 
 // 入力した値を保持するための変数
-const todoRef = ref('abc');
+const todoRef = ref('');
 
-onUpdated(() => {
-  console.log('onUpdated', todoRef.value);
-});
 // 変更ボタンを押した際にfalseにする
 const isEditRef = ref(false);
 
@@ -49,7 +46,6 @@ const changeCheck = (id) => {
 <template>
   <div class="box-input">
     <input
-      id="inp"
       type="text"
       class="todo-input"
       placeholder="入力してください"
