@@ -1,3 +1,5 @@
+// MainTodoで使用するReactでいうカスタムフックを作成している。
+// ここで各処理を書くことで、ロジックを分離できる
 import { ref, computed } from 'vue';
 
 export const useTodoList = () => {
@@ -30,9 +32,13 @@ export const useTodoList = () => {
   };
 
   // 編集ボタンが押された際の処理
+  // editIdの初期値を-1にしているのは、0でも良いのだが、idが０から始まる場合もあるため、-1というidはありえないので、存在することのない-1をidに設定している
   const editId = ref(-1);
+  // 編集画面に詳細情報を反映させるための関数
   const show = (id) => {
+    // 特定のTodo情報を取得して、todo変数に入れている
     const todo = findById(id);
+    // 上記のeditIdにidを導入している
     editId.value = id;
     return todo.task;
   };
