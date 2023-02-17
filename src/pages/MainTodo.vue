@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 import { useTodoList } from '../composables/useTodoList';
-import BaseButton from './BaseButton.vue';
-import ButtonAdd from './ButtonAdd.vue';
+import BaseButton from '../components/BaseButton.vue';
+import ButtonAdd from '../components/ButtonAdd.vue';
 
 // 入力した値を保持するための変数
 const todoRef = ref('');
