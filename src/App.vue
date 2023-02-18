@@ -1,6 +1,12 @@
 <script setup>
 import TheHeader from './components/TheHeader.vue';
 import TheFooter from './components/TheFooter.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const goBlog = () => {
+  router.push('/blog');
+};
 </script>
 
 <template>
@@ -9,6 +15,7 @@ import TheFooter from './components/TheFooter.vue';
     <nav>
       <router-link to="/">ホーム</router-link>
       <router-link to="about">アバウト</router-link>
+      <span @click="goBlog">Blog</span>
     </nav>
     <main class="main"><router-view /></main>
     <TheFooter />
