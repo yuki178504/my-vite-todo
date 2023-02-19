@@ -3,7 +3,7 @@ import MainTodo from '../pages/MainTodo.vue';
 import About from '../pages/About.vue';
 import NotFound from '../pages/NotFound.vue';
 import Blog from '../pages/Blog.vue';
-import BlogId from '../pages/Blog.vue';
+import BlogDtl from '../pages/BlogDtl.vue';
 
 const routes = [
   {
@@ -28,8 +28,8 @@ const routes = [
   },
   {
     path: '/blog/:id',
-    name: 'BlogId',
-    component: BlogId,
+    name: 'BlogDtl',
+    component: BlogDtl,
   },
 ];
 
